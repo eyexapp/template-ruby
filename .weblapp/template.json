@@ -1,0 +1,33 @@
+{
+  "name": "ruby",
+  "displayName": "Ruby",
+  "description": "Ruby application template with Bundler dependency management and RSpec testing",
+  "category": "backend",
+  "language": "ruby",
+  "framework": "vanilla-ruby",
+  "stack": ["ruby", "bundler", "rspec", "rubocop"],
+  "features": ["gem-management", "testing", "linting"],
+  "commands": {
+    "dev": "ruby main.rb",
+    "test": "bundle exec rspec",
+    "lint": "bundle exec rubocop"
+  },
+  "packageManager": "bundler",
+  "ci": {
+    "workflowTemplate": "ruby",
+    "runner": "ubuntu-latest",
+    "runtime": {
+      "name": "ruby",
+      "version": "3.3",
+      "setup": "ruby/setup-ruby@v1",
+      "cache": "bundler"
+    },
+    "services": {},
+    "steps": {
+      "install": "bundle install",
+      "build": null,
+      "test": "bundle exec rspec",
+      "lint": "bundle exec rubocop"
+    }
+  }
+}
